@@ -3,8 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://q20m86p566ur" path="res://Assets/Textures/Main character/Sprite-0002.png" id="1_j2wod"]
 [ext_resource type="Script" uid="uid://b1btuaos6i3rx" path="res://Scenes/character_body_2d.gd" id="1_v1qfn"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_v1qfn"]
-radius = 330.02576
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_v1qfn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hh5uf"]
 radius = 22.0
@@ -15,8 +14,8 @@ height = 78.0
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(344, 526)
-shape = SubResource("CircleShape2D_v1qfn")
+position = Vector2(324, 333)
+shape = SubResource("WorldBoundaryShape2D_v1qfn")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_v1qfn")
