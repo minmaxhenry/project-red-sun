@@ -10,22 +10,22 @@ func get_movment():
 		currentSpeed = baseSpeed * sprintSpeedMult
 	velocity = input_direction * currentSpeed
 
-func get_look():
+func get_look_sprite():
 	var lookDirection = get_global_mouse_position()
-	var charPosition = global_position
+	var playerPosition = global_position
 	
-	var triangleXY = [lookDirection.x-charPosition.x, charPosition.y-lookDirection.y]
+	var triangleXY = [lookDirection.x-playerPosition.x, playerPosition.y-lookDirection.y]
 	
-	var lookVector = Vector2(lookDirection.x-charPosition.x, charPosition.y-lookDirection.y)
+	var lookVector = Vector2(lookDirection.x-playerPosition.x, playerPosition.y-lookDirection.y)
 	var lookVAngleR =  lookVector.angle() + PI
 	#var lookVAngleR =  atan2(triangleXY[0], triangleXY[1]) + PI
 	
 	var angle = ((180/PI)*lookVAngleR)+0
-	var snap = angle%45
-	print(snap)
+	var quadrant: int = (angle+45)/90
+	print(quadrant)
 	look_at(lookDirection)
 
 func _physics_process(delta):
 	get_movment()
-	get_look()
+	get_look_sprite()
 	move_and_slide()
