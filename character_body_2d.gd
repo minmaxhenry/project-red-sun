@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const baseSpeed = 500.0
 const sprintSpeedMult = 2
+const spriteAmount = 8
 
 func get_movment():
 	var currentSpeed = baseSpeed
@@ -11,8 +12,11 @@ func get_movment():
 	velocity = input_direction * currentSpeed
 
 func get_look_sprite():
+	const spriteAngle = 360/spriteAmount
+	const spriteOffsetAngle = spriteAngle/2
 	var lookDirection = get_global_mouse_position()
 	var playerPosition = global_position
+	
 	
 	var triangleXY = [lookDirection.x-playerPosition.x, playerPosition.y-lookDirection.y]
 	
@@ -21,8 +25,8 @@ func get_look_sprite():
 	#var lookVAngleR =  atan2(triangleXY[0], triangleXY[1]) + PI
 	
 	var angle = ((180/PI)*lookVAngleR)+0
-	var quadrant: int = (angle+45)/90
-	quadrant = wrapi(quadrant, 0, 4)
+	var quadrant: int = (angle+spriteOffsetAngle)/spriteAngle
+	quadrant = wrapi(quadrant, 0, spriteAmount)
 	print(quadrant)
 	look_at(lookDirection)
 
