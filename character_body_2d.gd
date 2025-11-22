@@ -17,11 +17,12 @@ func get_look_sprite():
 	var triangleXY = [lookDirection.x-playerPosition.x, playerPosition.y-lookDirection.y]
 	
 	var lookVector = Vector2(lookDirection.x-playerPosition.x, playerPosition.y-lookDirection.y)
-	var lookVAngleR =  lookVector.angle() + PI
+	var lookVAngleR =  wrapf(lookVector.angle() + 2*PI, 0, 2*PI)
 	#var lookVAngleR =  atan2(triangleXY[0], triangleXY[1]) + PI
 	
 	var angle = ((180/PI)*lookVAngleR)+0
 	var quadrant: int = (angle+45)/90
+	quadrant = wrapi(quadrant, 0, 4)
 	print(quadrant)
 	look_at(lookDirection)
 
