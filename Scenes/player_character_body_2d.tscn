@@ -1,21 +1,86 @@
-[gd_scene load_steps=4 format=3 uid="uid://s5k66fxq5r8f"]
+[gd_scene load_steps=10 format=3 uid="uid://s5k66fxq5r8f"]
 
-[ext_resource type="Script" uid="uid://bn5ykjruuj3s7" path="res://character_body_2d.gd" id="1_m2cpg"]
+[ext_resource type="Script" uid="uid://duxfamp3rg14s" path="res://Scenes/player_character_body_2d_25-11-22.gd" id="1_3y6w5"]
 [ext_resource type="Texture2D" uid="uid://j7opyibl63j6" path="res://Assets/Textures/Main character/MainChar.png" id="2_mq261"]
+[ext_resource type="Texture2D" uid="uid://bqn2o83q74g24" path="res://Assets/Textures/player-direction-spritesheet.png" id="3_3y6w5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5cqwd"]
 radius = 18.0
 height = 126.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
-script = ExtResource("1_m2cpg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8rk6"]
+atlas = ExtResource("3_3y6w5")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whxn2"]
+atlas = ExtResource("3_3y6w5")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pblna"]
+atlas = ExtResource("3_3y6w5")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbs6i"]
+atlas = ExtResource("3_3y6w5")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fw1d6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8rk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whxn2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pblna")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbs6i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PlayerCharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_3y6w5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_5cqwd")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D-face" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(0, 7.6293945e-06)
 scale = Vector2(4.25, 4.4375)
 texture = ExtResource("2_mq261")
+
+[node name="Sprite2D-back" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(0, 7.6293945e-06)
+scale = Vector2(4.25, 4.4375)
+texture = ExtResource("2_mq261")
+
+[node name="Sprite2D-right" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(0, 7.6293945e-06)
+scale = Vector2(4.25, 4.4375)
+texture = ExtResource("2_mq261")
+
+[node name="Sprite2D-left" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(0, 7.6293945e-06)
+scale = Vector2(4.25, 4.4375)
+texture = ExtResource("2_mq261")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4.4375, 4.4375)
+sprite_frames = SubResource("SpriteFrames_fw1d6")
+frame_progress = 0.2834325
