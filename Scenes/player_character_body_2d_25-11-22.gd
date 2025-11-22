@@ -27,8 +27,24 @@ func get_look_sprite():
 	var angle = ((180/PI)*lookVAngleR)+0
 	var quadrant: int = (angle+spriteOffsetAngle)/spriteAngle
 	quadrant = wrapi(quadrant, 0, spriteAmount)
+	
+	
+	
+	$"Sprite2D-front".hide()
+	$"Sprite2D-back".hide()
+	$"Sprite2D-right".hide()
+	$"Sprite2D-left".hide()
 	print(quadrant)
-	look_at(lookDirection)
+	if quadrant == 0:
+		$"Sprite2D-right".show()
+	if quadrant == 1:
+		$"Sprite2D-back".show()
+	if quadrant == 2:
+		$"Sprite2D-left".show()
+	if quadrant == 3:
+		$"Sprite2D-front".show()
+	
+	#look_at(lookDirection)
 
 func _physics_process(delta):
 	get_movment()

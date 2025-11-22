@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://s5k66fxq5r8f"]
+[gd_scene load_steps=13 format=3 uid="uid://s5k66fxq5r8f"]
 
 [ext_resource type="Script" uid="uid://duxfamp3rg14s" path="res://Scenes/player_character_body_2d_25-11-22.gd" id="1_3y6w5"]
-[ext_resource type="Texture2D" uid="uid://j7opyibl63j6" path="res://Assets/Textures/Main character/MainChar.png" id="2_mq261"]
+[ext_resource type="Texture2D" uid="uid://c0q3e50ccdsak" path="res://Assets/Textures/player-front.png" id="2_pblna"]
 [ext_resource type="Texture2D" uid="uid://bqn2o83q74g24" path="res://Assets/Textures/player-direction-spritesheet.png" id="3_3y6w5"]
+[ext_resource type="Texture2D" uid="uid://dy65nllborin6" path="res://Assets/Textures/player-back.png" id="3_qbs6i"]
+[ext_resource type="Texture2D" uid="uid://c0vit5t6qxg8g" path="res://Assets/Textures/player-right.png" id="4_fw1d6"]
+[ext_resource type="Texture2D" uid="uid://wa0efced34dp" path="res://Assets/Textures/player-left.png" id="5_ylms2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5cqwd"]
 radius = 18.0
@@ -51,35 +54,32 @@ script = ExtResource("1_3y6w5")
 position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_5cqwd")
 
-[node name="Sprite2D-face" type="Sprite2D" parent="."]
-visible = false
+[node name="Sprite2D-front" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, 7.6293945e-06)
 scale = Vector2(4.25, 4.4375)
-texture = ExtResource("2_mq261")
+texture = ExtResource("2_pblna")
 
 [node name="Sprite2D-back" type="Sprite2D" parent="."]
-visible = false
 texture_filter = 1
 position = Vector2(0, 7.6293945e-06)
 scale = Vector2(4.25, 4.4375)
-texture = ExtResource("2_mq261")
+texture = ExtResource("3_qbs6i")
 
 [node name="Sprite2D-right" type="Sprite2D" parent="."]
-visible = false
 texture_filter = 1
 position = Vector2(0, 7.6293945e-06)
 scale = Vector2(4.25, 4.4375)
-texture = ExtResource("2_mq261")
+texture = ExtResource("4_fw1d6")
 
 [node name="Sprite2D-left" type="Sprite2D" parent="."]
-visible = false
 texture_filter = 1
 position = Vector2(0, 7.6293945e-06)
 scale = Vector2(4.25, 4.4375)
-texture = ExtResource("2_mq261")
+texture = ExtResource("5_ylms2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 texture_filter = 1
 scale = Vector2(4.4375, 4.4375)
 sprite_frames = SubResource("SpriteFrames_fw1d6")
